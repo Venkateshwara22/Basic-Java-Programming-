@@ -1,0 +1,62 @@
+
+
+Operator List Update Schema:
+{
+  "_id": ObjectId,
+  "name": String,
+  "age": Number,
+  "role": String,
+  "machineId": ObjectId,   // References the Machine List table
+  "supervisorId": ObjectId // References the Supervisor List table
+}
+
+Machine List Update Schema:
+{
+  "_id": ObjectId,
+  "name": String,
+  "location": String,
+  "capacity": Number,
+  "operatorIds": [ObjectId] // References the Operator List table (multiple operators per machine)
+}
+
+Part List Update Schema:
+{
+  "_id": ObjectId,
+  "name": String,
+  "description": String,
+  "cycle time": Float(secs),
+	
+  "machineId": ObjectId, // References the Machine List table
+  "supervisorId": ObjectId // References the Supervisor List table
+}
+
+Supervisor List Update Schema:
+{
+  "_id": ObjectId,
+  "name": String,
+  "department": String
+}
+
+Operations List Update Schema:
+{
+  "_id": ObjectId,
+  "operatorIds": [ObjectId] // References the Operator List table (multiple operators per operators list)
+}
+
+
+{
+  "_id": ObjectId("60d7f7b0e8ceea006d477a21"),
+  "name": "John Doe",
+  "age": 32,
+  "role": "Operator",
+  "machineId": ObjectId("60d7f7b0e8ceea006d477a25"),
+  "supervisorId": ObjectId("60d7f7b0e8ceea006d477a2a")
+},
+{
+  "_id": ObjectId("60d7f7b0e8ceea006d477a22"),
+  "name": "Jane Smith",
+  "age": 28,
+  "role": "Operator",
+  "machineId": ObjectId("60d7f7b0e8ceea006d477a26"),
+  "supervisorId": ObjectId("60d7f7b0e8ceea006d477a2a")
+}
